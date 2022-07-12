@@ -16,99 +16,108 @@
   </head>
   <body>
     <div class="container">
-      <div class="form" id="all-frame">
-        <form action="">
-          <input type="text" placeholder="Enter city" />
-          <input type="submit" value="Search" />
-        </form>
-        <input type="submit" value="Current" />
-        <h1>Paris, FR</h1>
-        <ul>
-          <li>Tuesday 13:45</li>
-          <li>Clear</li>
-        </ul>
-        <div class="row">
-          <div class="col-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt="Image weather"
-            />
-            12 °C | °F
-          </div>
-          <div class="col-6">
-            <ul>
-              <li>Humidity: 5%</li>
-              <li>Wind: 2 km\h</li>
+      <div class="wrapper">
+        <div class="form" id="all-frame">
+          <form action="">
+            <input class="enter" type="text" placeholder="Enter city" />
+            <input class="enter-button" type="submit" value="Search" />
+          </form>
+          <input class="current" type="submit" value="Current" />
+
+          <div class="header">
+            <h1>Paris, FR</h1>
+            <ul class="head">
+              <li>Tuesday 13:45</li>
+              <li>Clear</li>
             </ul>
           </div>
-        </div>
-        <h5 class="forecast-header">Forecast</h5>
-        <div class="card weatherDisplay">
-          <div class="card-body forecast-card">
-            <div class="forecast-display" id="forecast-display">
-              <div class="row">
-                <div class="col weekday">
-                  <div class="week-day">Sun</div>
-                  <div class="icon-forecast">
-                    <img
-                      src="https://openweathermap.org/img/wn/01@2x.png"
-                      alt
-                      width="40px"
-                    />
+          <div class="row first-row">
+            <div class="col-6">
+              <div class="main-temperature">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="Image weather"
+                />
+                <strong id="temperature">12</strong>
+                <span id="celsius">°C</span>
+                <span>|</span>
+                <span id="farenheit">°F</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul class="humidity-wind">
+                <li>Humidity: 5%</li>
+                <li>Wind: 2 km\h</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card weatherDisplay">
+            <div class="card-body forecast-card">
+              <div class="forecast-display" id="forecast-display">
+                <div class="row">
+                  <div class="col weekday">
+                    <div class="week-day">Sun</div>
+                    <div class="icon-forecast">
+                      <img
+                        src="https://openweathermap.org/img/wn/01@2x.png"
+                        alt
+                        width="40px"
+                      />
+                    </div>
+                    <div class="temp-forecast" id="temp-forecast">29°</div>
                   </div>
-                  <div class="temp-forecast" id="temp-forecast">29°</div>
-                </div>
-                <div class="col weekday">
-                  <div class="week-day">Mon</div>
-                  <div class="icon-forecast">
-                    <img
-                      src="https://openweathermap.org/img/wn/01@2x.png"
-                      alt
-                      width="40px"
-                    />
+                  <div class="col weekday">
+                    <div class="week-day">Mon</div>
+                    <div class="icon-forecast">
+                      <img
+                        src="https://openweathermap.org/img/wn/01@2x.png"
+                        alt
+                        width="40px"
+                      />
+                    </div>
+                    <div class="temp-forecast" id="temp-forecast">29°</div>
                   </div>
-                  <div class="temp-forecast" id="temp-forecast">29°</div>
-                </div>
-                <div class="col weekday">
-                  <div class="week-day">Tue</div>
-                  <div class="icon-forecast">
-                    <img
-                      src="https://openweathermap.org/img/wn/01@2x.png"
-                      alt
-                      width="40px"
-                    />
+                  <div class="col weekday">
+                    <div class="week-day">Tue</div>
+                    <div class="icon-forecast">
+                      <img
+                        src="https://openweathermap.org/img/wn/01@2x.png"
+                        alt
+                        width="40px"
+                      />
+                    </div>
+                    <div class="temp-forecast" id="temp-forecast">29°</div>
                   </div>
-                  <div class="temp-forecast" id="temp-forecast">29°</div>
-                </div>
-                <div class="col weekday">
-                  <div class="week-day">Wed</div>
-                  <div class="icon-forecast">
-                    <img
-                      src="https://openweathermap.org/img/wn/01@2x.png"
-                      alt
-                      width="40px"
-                    />
+                  <div class="col weekday">
+                    <div class="week-day">Wed</div>
+                    <div class="icon-forecast">
+                      <img
+                        src="https://openweathermap.org/img/wn/01@2x.png"
+                        alt
+                        width="40px"
+                      />
+                    </div>
+                    <div class="temp-forecast" id="temp-forecast">29°</div>
                   </div>
-                  <div class="temp-forecast" id="temp-forecast">29°</div>
-                </div>
-                <div class="col weekday">
-                  <div class="week-day">Thu</div>
-                  <div class="icon-forecast">
-                    <img
-                      src="https://openweathermap.org/img/wn/01@2x.png"
-                      alt
-                      width="40px"
-                    />
+                  <div class="col weekday">
+                    <div class="week-day">Thu</div>
+                    <div class="icon-forecast">
+                      <img
+                        src="https://openweathermap.org/img/wn/01@2x.png"
+                        alt
+                        width="40px"
+                      />
+                    </div>
+                    <div class="temp-forecast" id="temp-forecast">29°</div>
                   </div>
-                  <div class="temp-forecast" id="temp-forecast">29°</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <small
-          ><a href="#" target="_blank">Open-sourse code</a> by Olena
-          Bilousova</small
+          ><a id="source-code" href="#" target="_blank">Open-sourse code</a> by
+          Olena Bilousova</small
         >
       </div>
     </div>
