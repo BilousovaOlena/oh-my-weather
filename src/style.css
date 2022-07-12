@@ -1,3 +1,12 @@
-h1 {
-  color: purple;
+#all-frame {
+  max-width: 600px;
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid;
+  border-color: #dadde1;
+  border-radius: 10px;
+  background-image: url(pictures/road.jpg);
+  background-size: 700px;
+  background-repeat: no-repeat;
 }
