@@ -29,7 +29,8 @@ function showParameters(response) {
   let aboutSky = document.querySelector("#sky-up");
   aboutSky.innerHTML = response.data.weather[0].description;
   let temperatureElem = document.querySelector("#temperature");
-  temperatureElem.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  temperatureElem.innerHTML = Math.round(celsiusTemp);
   let humidityElem = document.querySelector("#humidity");
   humidityElem.innerHTML = response.data.main.humidity;
   let windElem = document.querySelector("#wind");
@@ -55,7 +56,32 @@ function searchCity(event) {
   search(cityInputElem.value);
 }
 
-search("Helsinki");
+function changeToFarenh(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  farenhLink.classList.add("active");
+  let tempElem = document.querySelector("#temperature");
+  let farenhTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElem.innerHTML = Math.round(farenhTemp);
+}
+
+function changeToCels(event) {
+  event.preventDefault();
+  farenhLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let tempElem = document.querySelector("#temperature");
+  tempElem.innerHTML = Math.round(celsiusTemp);
+}
 
 let form = document.querySelector("#all-frame");
 form.addEventListener("submit", searchCity);
+
+let farenhLink = document.querySelector("#farenh");
+farenhLink.addEventListener("click", changeToFarenh);
+
+let celsiusLink = document.querySelector("#cels");
+celsiusLink.addEventListener("click", changeToCels);
+
+let celsiusTemp = null;
+
+search("Helsinki");

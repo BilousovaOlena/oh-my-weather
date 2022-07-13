@@ -24,6 +24,7 @@
               id="search-city"
               type="search"
               placeholder="Type a city..."
+              autocomplete="off"
             />
             <input class="enter-button" type="submit" value="Search" />
           </form>
@@ -44,9 +45,11 @@
               <div class="main-temperature">
                 <img src="" alt="" id="icon" />
                 <strong id="temperature">12</strong>
-                <span id="celsius">°C</span>
+                <span id="celsius"
+                  ><a href="#" id="cels" class="active">°C</a></span
+                >
                 <span>|</span>
-                <span id="farenheit">°F</span>
+                <span id="farenheit"><a href="#" id="farenh">°F</a></span>
               </div>
             </div>
             <div class="col-6">

@@ -104,3 +104,13 @@
 .date-time {
   font-size: 22px;
 }
+#cels {
+  text-decoration: none;
+}
+#farenh {
+  text-decoration: none;
+}
+.main-temperature .active {
+  color: #dadde1;
+  cursor: default;
+}
