@@ -43,8 +43,19 @@ function showParameters(response) {
   );
   iconElem.setAttribute("alt", `response.data.weather[0].description`);
 }
+function search(city) {
+  let apiKey = "eaf040dff7892fc80bc32a2d99e6ebec";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showParameters);
+}
 
-let apiKey = "eaf040dff7892fc80bc32a2d99e6ebec";
-let city = "Madrid";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(showParameters);
+function searchCity(event) {
+  event.preventDefault();
+  let cityInputElem = document.querySelector("#search-city");
+  search(cityInputElem.value);
+}
+
+search("Helsinki");
+
+let form = document.querySelector("#all-frame");
+form.addEventListener("submit", searchCity);
