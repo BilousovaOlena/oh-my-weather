@@ -73,6 +73,18 @@ function changeToCels(event) {
   tempElem.innerHTML = Math.round(celsiusTemp);
 }
 
+function showPosition(position) {
+  console.log(position);
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=eaf040dff7892fc80bc32a2d99e6ebec&units=metric`;
+  axios.get(apiUrl).then(showParameters);
+}
+
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
 let form = document.querySelector("#all-frame");
 form.addEventListener("submit", searchCity);
 
@@ -81,6 +93,9 @@ farenhLink.addEventListener("click", changeToFarenh);
 
 let celsiusLink = document.querySelector("#cels");
 celsiusLink.addEventListener("click", changeToCels);
+
+let buttonCur = document.querySelector("#position-current");
+buttonCur.addEventListener("click", getCurrentPosition);
 
 let celsiusTemp = null;
 
