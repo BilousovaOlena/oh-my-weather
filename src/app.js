@@ -36,6 +36,12 @@ function showParameters(response) {
   windElem.innerHTML = Math.round(response.data.wind.speed);
   let timeElement = document.querySelector("#day-time");
   timeElement.innerHTML = updateTime(response.data.dt * 1000);
+  let iconElem = document.querySelector("#icon");
+  iconElem.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElem.setAttribute("alt", `response.data.weather[0].description`);
 }
 
 let apiKey = "eaf040dff7892fc80bc32a2d99e6ebec";
