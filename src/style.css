@@ -78,6 +78,7 @@
   font-weight: bolder;
 }
 #temperature {
+  margin-left: 10px;
   font-size: 54px;
   line-height: 1;
 }
@@ -96,4 +97,10 @@
 }
 #source-code {
   text-decoration: none;
+}
+#sky-up::first-letter {
+  text-transform: capitalize;
+}
+.date-time {
+  font-size: 22px;
 }

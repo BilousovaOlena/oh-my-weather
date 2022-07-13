@@ -11,8 +11,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/style.css" />
-
     <title>Weather now</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -25,10 +25,13 @@
           <input class="current" type="submit" value="Current" />
 
           <div class="header">
-            <h1>Paris, FR</h1>
+            <h1>
+              <span id="city-name">Paris</span>,
+              <span id="country-name"> FR</span>
+            </h1>
             <ul class="head">
-              <li>Tuesday 13:45</li>
-              <li>Clear</li>
+              <li class="date-time">Tuesday 13:45</li>
+              <li id="sky-up">Clear</li>
             </ul>
           </div>
           <div class="row first-row">
@@ -46,8 +49,8 @@
             </div>
             <div class="col-6">
               <ul class="humidity-wind">
-                <li>Humidity: 5%</li>
-                <li>Wind: 2 km\h</li>
+                <li>Humidity: <span id="humidity">5</span>%</li>
+                <li>Wind: <span id="wind">2</span> km\h</li>
               </ul>
             </div>
           </div>
