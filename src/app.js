@@ -20,6 +20,29 @@ function updateTime(timestamp) {
   let dayWeek = days[date.getDay()];
   return `${dayWeek} ${hours}:${minuts}`;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast-display");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col weekday">
+                    <div class="week-day">${day}</div>
+                    <div class="icon-forecast">
+                      <img
+                        src="https://openweathermap.org/img/wn/01@2x.png"
+                        alt
+                        width="40px"
+                      />
+                    </div>
+                    <div class="temp-forecast" id="temp-forecast">
+                      <span>29° </span><span> 20°</span>
+                    </div>`;
+    forecastHTML = forecastHTML + `</div>`;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function showParameters(response) {
   let nameCity = document.querySelector("#city-name");
@@ -100,3 +123,5 @@ buttonCur.addEventListener("click", getCurrentPosition);
 let celsiusTemp = null;
 
 search("Helsinki");
+
+displayForecast();
