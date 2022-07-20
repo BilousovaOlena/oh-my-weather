@@ -25,26 +25,43 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
+  let forecastNow = response.data.daily;
+  console.log(forecastNow);
   let forecastElement = document.querySelector("#forecast-display");
   let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col weekday">
-                    <div class="week-day">${day}</div>
+
+  forecastNow.forEach(function (forecastDay, index) {
+    if (index !== 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col weekday">
+                    <div class="week-day">${formatDay(forecastDay.dt)}</div>
                     <div class="icon-forecast">
                       <img
-                        src="https://openweathermap.org/img/wn/01@2x.png"
-                        alt
+                        src="http://openweathermap.org/img/wn/${
+                          forecastDay.weather[0].icon
+                        }@2x.png"
+                        alt=""
                         width="40px"
                       />
                     </div>
                     <div class="temp-forecast" id="temp-forecast">
-                      <span>29° </span><span> 20°</span>
+                      <span>${Math.round(
+                        forecastDay.temp.max
+                      )}° </span><span>  ${Math.round(
+          forecastDay.temp.min
+        )}°</span>
                     </div>`;
-    forecastHTML = forecastHTML + `</div>`;
+      forecastHTML = forecastHTML + `</div>`;
+    }
   });
   forecastElement.innerHTML = forecastHTML;
 }
@@ -129,5 +146,3 @@ buttonCur.addEventListener("click", getCurrentPosition);
 let celsiusTemp = null;
 
 search("Helsinki");
-
-displayForecast();
