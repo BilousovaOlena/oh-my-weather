@@ -102,23 +102,6 @@ function searchCity(event) {
   search(cityInputElem.value);
 }
 
-function changeToFarenh(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  farenhLink.classList.add("active");
-  let tempElem = document.querySelector("#temperature");
-  let farenhTemp = (celsiusTemp * 9) / 5 + 32;
-  tempElem.innerHTML = Math.round(farenhTemp);
-}
-
-function changeToCels(event) {
-  event.preventDefault();
-  farenhLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let tempElem = document.querySelector("#temperature");
-  tempElem.innerHTML = Math.round(celsiusTemp);
-}
-
 function showPosition(position) {
   console.log(position);
   let lat = position.coords.latitude;
@@ -134,15 +117,7 @@ function getCurrentPosition() {
 let form = document.querySelector("#all-frame");
 form.addEventListener("submit", searchCity);
 
-let farenhLink = document.querySelector("#farenh");
-farenhLink.addEventListener("click", changeToFarenh);
-
-let celsiusLink = document.querySelector("#cels");
-celsiusLink.addEventListener("click", changeToCels);
-
 let buttonCur = document.querySelector("#position-current");
 buttonCur.addEventListener("click", getCurrentPosition);
-
-let celsiusTemp = null;
 
 search("Helsinki");
